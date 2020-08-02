@@ -16,7 +16,6 @@ type solution struct {
 
 	nums []int
 	l    int
-	res  [][]int
 }
 
 func (s *solution) r(nums []int) (res [][]int) {
@@ -30,7 +29,7 @@ func (s *solution) r(nums []int) (res [][]int) {
 	}
 	arr := s.r(nums[1:])
 	for _, v := range arr {
-		for k := 0; k < l; {
+		for k := 0; k < l; k++ {
 			arrNext := make([]int, l)
 			res = append(res, arrNext)
 			for i, j := 0, 0; i < l; i++ {
@@ -50,5 +49,5 @@ func (s *solution) r(nums []int) (res [][]int) {
 }
 
 func (s *solution) permuteUnique() [][]int {
-	return s.res
+	return s.r(s.nums)
 }
